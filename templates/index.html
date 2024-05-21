@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -15,39 +15,96 @@
     />
   </head>
   <body>
-    <section class="section">
-      <div class="container">
-        <div class="columns is-centered">
-          <div class="column is-half">
-            <div class="box has-text-centered">
-              <h1 class="title">Welcome to the English 🇬🇧 Resources API 🖥️</h1>
-              <p class="subtitle">
-                You can access the resources through the following endpoints:
-              </p>
-              <ul class="has-text-left">
-                <li>
-                  <a class="button is-link is-light" href="/resources"
-                    >/resources</a
-                  >
-                  : Get a list of all resources
-                </li>
-                <li>
-                  <a class="button is-link is-light" href="/resources/77"
-                    >/resources/&lt;id&gt;</a
-                  >
-                  : Get a specific resource by ID
-                </li>
-                <li>
-                  <a class="button is-link is-light" href="/resources/random"
-                    >/resources/random</a
-                  >
-                  : Get a random resource
-                </li>
-              </ul>
-            </div>
-          </div>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title has-text-centered-mobile">
+            🇬🇧 Welcome to the English Resources API
+          </h1>
+          <h2 class="subtitle has-text-centered-mobile">
+            You can access the resources through the following endpoints:
+          </h2>
         </div>
       </div>
     </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="columns is-multiline">
+          <div class="column is-one-quarter">
+            <div class="box">
+              <a
+                class="button is-medium is-primary is-light is-fullwidth has-text-weight-semibold"
+                href="/resources"
+                >/resources</a
+              >
+              <p class="has-text-centered pt-2">Get a list of all resources</p>
+            </div>
+          </div>
+          <div class="column is-one-quarter">
+            <div class="box">
+              <a
+                class="button is-medium is-primary is-light is-fullwidth has-text-weight-semibold"
+                href="/resources/77"
+                >/resources/&lt;id&gt;</a
+              >
+              <p class="has-text-centered pt-2">
+                Get a specific resource by ID
+              </p>
+            </div>
+          </div>
+          <div class="column is-one-quarter">
+            <div class="box">
+              <a
+                class="button is-medium is-primary is-light is-fullwidth has-text-weight-semibold"
+                href="/resources/random"
+                >/resources/random</a
+              >
+              <p class="has-text-centered pt-2">Get a random resource</p>
+            </div>
+          </div>
+          <div class="column is-one-quarter">
+            <div class="box">
+              <a
+                class="button is-medium is-primary is-light is-fullwidth has-text-weight-semibold"
+                href="/resources/top"
+                >/resources/&lt;category&gt;</a
+              >
+              <p class="has-text-centered pt-2">
+                Get specific resources by category
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="title is-4">Categories</h2>
+        <div class="columns is-multiline">
+          {% for category in categories %}
+          <div class="column is-one-quarter">
+            <div class="box has-text-centered">
+              <a
+                class="button is-small is-info is-fullwidth has-text-weight-medium"
+                href="/resources/{{ category | lower }}"
+                >{{ category }}</a
+              >
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Made with ❤️ </strong> by
+          <a href="https://www.gerozayas.com"><strong>Gero Zayas</strong></a
+          >. <br />Get the
+          <a href="https://github.com/GeroZayas/Best-English-Resources-API"
+            >source code</a
+          >
+          of this web API on <strong>GitHub</strong>.
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

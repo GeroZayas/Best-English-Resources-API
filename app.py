@@ -45,14 +45,31 @@ class CategoryResource(Resource):
 # Route for the index page
 @app.route("/")
 def index():
-    return render_template("index.html")
+    categories = [
+        "top",
+        "CAE",
+        "collocations",
+        "dictionary",
+        "FCE",
+        "grammar",
+        "listening",
+        "phrasal verbs",
+        "pronunciation",
+        "reading",
+        "speaking",
+        "general",
+        "vocabulary",
+        "writing",
+        "young learners and kids",
+    ]
+    return render_template("index.html", categories=categories)
 
 
 # Add resource routes
 api.add_resource(ResourceList, "/resources")
 api.add_resource(ResourceDetail, "/resources/<int:resource_id>")
 api.add_resource(RandomResource, "/resources/random")
-api.add_resource(CategoryResource, "/resources/category/<string:category>")
+api.add_resource(CategoryResource, "/resources/<string:category>")
 
 # Run the app
 if __name__ == "__main__":
