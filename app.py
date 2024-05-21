@@ -32,6 +32,16 @@ class RandomResource(Resource):
         return jsonify(random_resource)
 
 
+class CategoryResource(Resource):
+    def get(self, category):
+        filtered_resources = df[df["category"].str.lower() == category.lower()].to_dict(
+            orient="records"
+        )
+        if filtered_resources:
+            return jsonify(filtered_resources)
+        return {"message": "No resources found for this category"}, 404
+
+
 # Route for the index page
 @app.route("/")
 def index():
@@ -42,6 +52,7 @@ def index():
 api.add_resource(ResourceList, "/resources")
 api.add_resource(ResourceDetail, "/resources/<int:resource_id>")
 api.add_resource(RandomResource, "/resources/random")
+api.add_resource(CategoryResource, "/resources/category/<string:category>")
 
 # Run the app
 if __name__ == "__main__":
