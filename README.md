@@ -2,7 +2,7 @@
 
 This simple but powerful Flask API helps you have access to arguably the best curated collection of ESL resources online, both for students and educators 💻.
 
-[🔗 Best English Resources API Link](https://best-english-resources-api.onrender.com/)
+[🔗 Best English Resources API Link](https://api-english-resources.up.railway.app/)
 
 ### Screenshot
 
